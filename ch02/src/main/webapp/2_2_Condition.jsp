@@ -22,20 +22,17 @@
 	if(num1 > 0){
 		out.print("<h4>num1은 0보다 크다</h4>");
 	}
+	%>
 	
-		if(num1 > num2){
-	%>
-			<h4>num1이 num2 보다 크다</h4>
-	<% 
-		}else{
-	%>
-			<h4>num1이 num2 보다 작다</h4>
-	<% 
-		}
-	%>	
+	<hr>
+	
+	<% if(num1 > num2){ %>
+		<h4>num1이 num2 보다 크다</h4>
+	<% }else{ %>
+		<h4>num1이 num2 보다 작다</h4>
+	<% } %>	
 		
-		
-	<hr/>
+	<hr>
 	
 	<% if (num1 > num2){ %>
 		<h4>num1은 num2 보다 크다.</h4>
@@ -46,7 +43,6 @@
 	<% }else {%>
 		<h4>num4가 가장 크다.</h4>
 	<% } %>
-	
 	
 </body>
 </html>
