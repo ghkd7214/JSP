@@ -9,7 +9,6 @@
 	String[] hobbies = request.getParameterValues("hobby") ; // 복수개 선택가능이라 배열객체
 	String addr		 = request.getParameter("addr") ;
 
-
 %>
 
 <!DOCTYPE html>
@@ -29,12 +28,11 @@
 			<td>성별</td>
 			<td>
 			<%
-			if(gender.equals("1")){
+			if(gender.equals("1")){  //문자열은 == 안먹힘
 				out.print("남자");
 			}else{
 				out.print("여자");
 			}
-			
 			
 			%>
 			</td>
@@ -56,8 +54,6 @@
 	
 	</table>
 	<a href="../3_1_Request.jsp">뒤로가기</a>
-	
-	
 	
 </body>
 </html>
