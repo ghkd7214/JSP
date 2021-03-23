@@ -11,6 +11,7 @@
 	
 	out.print("<h4>로그인 출력</h4>");
 	out.print("<p>");
+	
 	out.print("아이디 : "+uid+"<br>");
 	out.print("비밀번호 : "+pass+"<br>");
 	
