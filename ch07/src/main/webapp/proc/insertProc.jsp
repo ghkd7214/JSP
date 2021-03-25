@@ -26,17 +26,12 @@
 	//2단계 - 데이터베이스 접속
 	Connection conn = DriverManager.getConnection(host,user,pass);
 	
-	
-	
 	//3단계 - SQL 실행 객체 생성
 	Statement stmt = conn.createStatement();
 	
 	//4단계 - SQL 실행
-	String sql = "INSERT INTO `USER1` VALUES ('"+uid+"','"+name+"','"+hp+"',"+age+");";
+	String sql = "INSERT INTO `USER1` VALUES ('"+uid+"', '"+name+"', '"+hp+"', "+age+");";
 	stmt.executeUpdate(sql);
-	
-
-	
 	
 	//5단계 - 실행결과 처리(SELECT일 경우)
 	//6단계 - 데이터베이스 종료
@@ -44,5 +39,5 @@
 	conn.close();
 	
 	//리다이렉트
-	response.sendRedirect("../7_1_JDBC_Insert.jsp");
+	response.sendRedirect("../7_2_JDBC_Select.jsp");
 %>
