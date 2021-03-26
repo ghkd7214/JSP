@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	
 	//전송데이터 인코딩
 	request.setCharacterEncoding("UTF-8");
 
@@ -8,6 +7,7 @@
 	String uid  = request.getParameter("uid");
 	String name = request.getParameter("name");
 	String hp   = request.getParameter("hp");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -66,7 +66,5 @@
 			</tr>
 		</table>
 	</form>
-	
-	
 </body>
 </html>

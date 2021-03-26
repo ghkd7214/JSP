@@ -4,6 +4,9 @@
 <%@page import="java.sql.Statement"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	//UID 중복 처리 
+	int over = 1;
+
 	//전송데이터 인코딩
 	request.setCharacterEncoding("UTF-8");
 
@@ -35,7 +38,7 @@
 	try{
 		stmt.executeUpdate(sql);
 	}catch(SQLException e){
-		//
+		over = 0;
 	}
 	//5단계 - 실행결과 처리(SELECT일 경우)
 		
@@ -44,5 +47,9 @@
 	conn.close();
 	
 	// 리다이렉트 
-	response.sendRedirect("../list.jsp");
+	if (over == 1 ){
+		response.sendRedirect("../list.jsp");
+	}else{
+		response.sendRedirect("../register.jsp?over=0");
+	}
 %>

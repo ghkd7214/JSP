@@ -1,9 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	//uid 중복 방지
+	String over = "1";  //1이면 정상
+
+	//전송데이터 인코딩
+	request.setCharacterEncoding("UTF-8");
+
+	// 수정할 전송 데이터 수신
+	String uid  = request.getParameter("uid");
+	String name = request.getParameter("name");
+	String hp   = request.getParameter("hp");
+	over = request.getParameter("over");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>직원등록</title>
+<script>
+	var result = "<%= over %>";
+	
+	if(result == "0"){
+		alert("uid는 중복 될 수 없습니다!");
+	}
+</script>
 </head>
 <body>
 	<h3>직원등록</h3>
@@ -55,7 +75,5 @@
 			</tr>
 		</table>
 	</form>
-	
-	
 </body>
 </html>

@@ -18,7 +18,6 @@
 	String Pos = request.getParameter("pos");
 	String Dep = request.getParameter("dep");
 
-
 	// 데이터베이스 처리 1 ~ 6단계
 	String host ="jdbc:mysql://192.168.10.114:3306/ljh";
 	String user ="ljh";
@@ -57,6 +56,7 @@
 	rs.close();
 	stmt.close();
 	conn.close();
+	
 %>
 <!DOCTYPE html>
 <html>
