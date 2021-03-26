@@ -15,7 +15,7 @@
 	String pass ="1234";
 	
 	//1단계 - JBDC 드라이버 로드
-	Class.forName("com.mysql.jdbc.Driver");
+	Class.forName("com.mysql.jdbc.Driver"); //mysql connector j 필요(mysql 홈페이지에 있음)
 	
 	//2단계 - 데이터베이스 접속
 	Connection conn = DriverManager.getConnection(host, user, pass);
@@ -48,7 +48,6 @@
 	conn.close();
 	
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
