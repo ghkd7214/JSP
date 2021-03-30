@@ -7,8 +7,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	//데이터베이스 처리 1~6단계
-	String host = "jdbc:mysql://192.168.10.114:3306/chhak";
-	String user = "chhak";
+	String host = "jdbc:mysql://192.168.10.114:3306/ljh";
+	String user = "ljh";
 	String pass = "1234";
 	// 1단계 - JDBC 드라이버 로드
 	Class.forName("com.mysql.jdbc.Driver");
