@@ -1,3 +1,4 @@
+<%@page import="kr.co.jboard.config.DBConfig"%>
 <%@page import="com.google.gson.JsonObject"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -11,16 +12,8 @@
 	//전송 데이터 수신
 	String nick	 = request.getParameter("nick");
 
-	//데이터베이스 처리 1~6단계
-	String host = "jdbc:mysql://192.168.10.114:3306/ljh";
-	String user = "ljh";
-	String pass = "1234";
-	
-	// 1단계 - JDBC 드라이버 로드
-	Class.forName("com.mysql.jdbc.Driver");
-	
-	// 2단계 - 데이터베이스 접속
-	Connection conn = DriverManager.getConnection(host, user, pass);
+	//1~2단계
+	Connection conn = DBConfig.getInstance().getConnection();
 	
 	// 3단계 - SQL 실행객체 생성
 	Statement stmt = conn.createStatement();

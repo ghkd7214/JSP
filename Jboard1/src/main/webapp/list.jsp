@@ -1,9 +1,21 @@
+<%@page import="kr.co.jboard.bean.UserBean"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	//세션 사용자 정보 가져오기
+	UserBean user = (UserBean) session.getAttribute("suser");
+	
+	if(user == null){
+		//로그인안하고 게시판 목록을 요청했을경우
+		response.sendRedirect("/Jboard1/user/Proc/login.jsp?result=2");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>글목록</title>
-    <link rel="stylesheet" href="./css/style.css">    
+    <link rel="stylesheet" href="/Jboard1/css/style.css">    
 </head>
 <body>
     <div id="wrapper">
@@ -11,8 +23,8 @@
             <h3>글목록</h3>
             <article>
                 <p>
-                    홍길동님 반갑습니다.
-                    <a href="./user/login.jsp" class="logout">[로그아웃]</a>
+                    <%= user.getNick() %>반갑습니다.
+                    <a href="/Jboard1/user/Proc/logout.jsp" class="logout">[로그아웃]</a>
                 </p>
                 <table border="0">
                     <tr>
@@ -24,7 +36,7 @@
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td><a href="./view.jsp">테스트 제목입니다.</a>&nbsp;[3]</td>
+                        <td><a href="/Jboard1/view.jsp">테스트 제목입니다.</a>&nbsp;[3]</td>
                         <td>길동이</td>
                         <td>20-05-12</td>
                         <td>12</td>
@@ -42,7 +54,7 @@
             </div>
 
             <!-- 글쓰기 버튼 -->
-            <a href="./write.html" class="btnWrite">글쓰기</a>
+            <a href="/Jboard1/write.jsp" class="btnWrite">글쓰기</a>
 
         </section>
     </div>    
