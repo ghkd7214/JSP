@@ -19,31 +19,47 @@ public class ArticleDao {
 		return instance;
 	}
 	
-	public int getLimitStart(String pg) {
+	
+	public int[] getPageGroup(int currentPage, int lastPageNum) {
 		
-		int page = 1 ;
-		int start = 0;
+		int groupCurrent = (int) Math.ceil(currentPage / 10.0);
+		int groupStart   = (groupCurrent - 1) * 10 + 1;
+		int groupEnd     = groupCurrent * 10;
 		
-		if(pg != null) {
-			page = Integer.parseInt(pg);
-			start = (page -1)*10;
+		if(groupEnd > lastPageNum) {
+			groupEnd = lastPageNum;
 		}
-		return start;
+		
+		int[] groups = {groupStart, groupEnd};
+		
+		return groups;
 	}
 	
-	public int getLastPageNum (int total){
+	public int getCurrentPage(String pg) {
+		int currentPage = 1;
+		
+		if(pg != null) {
+			currentPage = Integer.parseInt(pg);
+		}
+		return currentPage;
+	}
+	
+	public int getLimitStart(int currentPage) {
+		return (currentPage - 1) * 10;
+	}
+	
+	public int getLastPageNum(int total) {
 		
 		int lastPageNum = 0;
 		
-		if (total % 10 ==0) {
-			lastPageNum = total /10;
+		if(total % 10 == 0) {
+			lastPageNum = total / 10;
 		}else {
-			lastPageNum = total / 10 +1 ;
+			lastPageNum = total / 10 + 1;
 		}
 		
 		return lastPageNum;
 	}
-	
 	
 	public int selectCountArticle() throws Exception {
 		
@@ -52,7 +68,7 @@ public class ArticleDao {
 		
 		ResultSet rs = stmt.executeQuery(Sql.SELECT_COUNT_ARTICLE);
 		
-		int total = 0 ;
+		int total = 0;
 		
 		if(rs.next()){
 			total = rs.getInt(1);
@@ -131,5 +147,4 @@ public class ArticleDao {
 	public void updateArticle() throws Exception {}
 	
 	public void deleteArticle() throws Exception {}
-	
 }
