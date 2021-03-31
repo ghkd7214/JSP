@@ -1,3 +1,5 @@
+<%@page import="kr.co.jboard.dao.ArticleDao"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="kr.co.jboard.bean.ArticleBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,46 +22,16 @@
 	//전송데이터 인코딩
 	request.setCharacterEncoding("UTF-8");
 	
-	//전송데이터 수신
-	//String uid = request.getParameter("uid");
-	//String pass = request.getParameter("pass");
+	//페이지 관련 변수
 	
-	//1~2단계
-	Connection conn = DBConfig.getInstance().getConnection();
+	ArticleDao dao = ArticleDao.getInstance();
 	
-	//3단계
-	String sql = "SELECT * FROM `JBOARD_ARTICLE`;";
-	PreparedStatement psmt = conn.prepareStatement(sql);
+	int total = dao.selectCountArticle();
+	int lastPageNum = dao.getLastPageNum(total);
+	int start = 0;
 	
-	//4단계
-	ResultSet rs = psmt.executeQuery();
-	
-	//5단계
-	List<ArticleBean> articles = new ArrayList<>();
-	
-	while(rs.next()){
-		ArticleBean ab = new ArticleBean();
-		ab.setSeq(rs.getInt(1));
-		ab.setParent(rs.getInt(2));
-		ab.setComment(rs.getInt(3));
-		ab.setCate(rs.getString(4));
-		ab.setTitle(rs.getString(5));
-		ab.setContent(rs.getString(6));
-		ab.setFile(rs.getInt(7));
-		ab.setHit(rs.getInt(8));
-		ab.setUid(rs.getString(9));
-		ab.setRegip(rs.getString(10));
-		ab.setRdate(rs.getString(11));
-				
-		articles.add(ab);
-		
-	}
-	
-	//6단계
-	rs.close();
-	psmt.close();
-	conn.close();
-	
+	//데이터베이스 처리
+	List<ArticleBean> articles = ArticleDao.getInstance().selectArticles(start);
 	
 %>
 <!DOCTYPE html>
@@ -78,7 +50,7 @@
                     <%= user.getNick() %>님 반갑습니다.
                     <a href="/Jboard1/user/Proc/logout.jsp" class="logout">[로그아웃]</a>
                 </p>
-                <table border="0">
+                <table>
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
@@ -90,7 +62,7 @@
                     <tr>
                         <td><%= ab.getSeq() %></td>
                         <td><a href="/Jboard1/view.jsp"><%=ab.getTitle() %></a>&nbsp;[<%=ab.getComment() %>]</td>
-                        <td><%= ab.getUid() %></td>
+                        <td><%= ab.getNick() %></td>
                         <td><%= ab.getRdate().substring(2,10) %></td>
                         <td><%= ab.getHit() %></td>
                     </tr>
@@ -101,9 +73,9 @@
             <!-- 페이지 네비게이션 -->
             <div class="paging">
                 <a href="#" class="prev">이전</a>
-                <a href="#" class="num current">1</a>                
-                <a href="#" class="num">2</a>                
-                <a href="#" class="num">3</a>                
+                <% for(int i=1;i<lastPageNum ; i++){ %>
+                	<a href="#" class="num"><%= i %></a>                
+                <% } %>               
                 <a href="#" class="next">다음</a>
             </div>
 
