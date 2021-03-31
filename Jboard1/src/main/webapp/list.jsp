@@ -19,6 +19,9 @@
 		return;	//프로그램 종료
 	}
 	
+	//전송데이터 수신
+	String pg = request.getParameter("pg");
+	
 	//전송데이터 인코딩
 	request.setCharacterEncoding("UTF-8");
 	
@@ -28,7 +31,7 @@
 	
 	int total = dao.selectCountArticle();
 	int lastPageNum = dao.getLastPageNum(total);
-	int start = 0;
+	int start = dao.getLimitStart(pg);
 	
 	//데이터베이스 처리
 	List<ArticleBean> articles = ArticleDao.getInstance().selectArticles(start);
@@ -74,7 +77,7 @@
             <div class="paging">
                 <a href="#" class="prev">이전</a>
                 <% for(int i=1;i<lastPageNum ; i++){ %>
-                	<a href="#" class="num"><%= i %></a>                
+                	<a href="/Jboard1/list.jsp?pg=<%= i %>" class="num"><%= i %></a>                
                 <% } %>               
                 <a href="#" class="next">다음</a>
             </div>
