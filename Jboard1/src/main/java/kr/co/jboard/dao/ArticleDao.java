@@ -24,7 +24,6 @@ public class ArticleDao {
 		return total -start;
 	}
 	
-	
 	public int[] getPageGroup(int currentPage, int lastPageNum) {
 		
 		int groupCurrent = (int) Math.ceil(currentPage / 10.0);
@@ -66,25 +65,9 @@ public class ArticleDao {
 		return lastPageNum;
 	}
 	
-	public int selectCountArticle() throws Exception {
-		
-		Connection conn = DBConfig.getInstance().getConnection();
-		Statement stmt = conn.createStatement();
-		
-		ResultSet rs = stmt.executeQuery(Sql.SELECT_COUNT_ARTICLE);
-		
-		int total = 0;
-		
-		if(rs.next()){
-			total = rs.getInt(1);
-		}
-		
-		rs.close();
-		stmt.close();
-		conn.close();
-		
-		return total;
-	}
+	
+	
+	
 	
 	
 	public void insertArticle(ArticleBean article) throws Exception {
@@ -125,6 +108,8 @@ public class ArticleDao {
 		psmt.close();
 		conn.close();
 	}
+	
+	
 	
 	public ArticleBean selectArticle(String seq) throws Exception {
 		//1~2단계
@@ -203,6 +188,68 @@ public class ArticleDao {
 		return articles;
 	}
 	
+	public int selectCountArticle() throws Exception {
+		
+		Connection conn = DBConfig.getInstance().getConnection();
+		Statement stmt = conn.createStatement();
+		
+		ResultSet rs = stmt.executeQuery(Sql.SELECT_COUNT_ARTICLE);
+		
+		int total = 0;
+		
+		if(rs.next()){
+			total = rs.getInt(1);
+		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		
+		return total;
+	}
+	
+	public List<ArticleBean> selectComments(String parent) throws Exception {
+		//1~2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+
+		//3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COMMENTS);
+		psmt.setString(1, parent);
+
+		//4단계
+		ResultSet rs = psmt.executeQuery();
+
+		//5단계
+		List<ArticleBean> comments = new ArrayList<>();
+
+		while(rs.next()) {
+			ArticleBean ab = new ArticleBean();
+			ab.setSeq(rs.getInt(1));
+			ab.setParent(rs.getInt(2));
+			ab.setComment(rs.getInt(3));
+			ab.setCate(rs.getString(4));
+			ab.setTitle(rs.getString(5));
+			ab.setContent(rs.getString(6));
+			ab.setFile(rs.getInt(7));
+			ab.setHit(rs.getInt(8));
+			ab.setUid(rs.getString(9));
+			ab.setRegip(rs.getString(10));
+			ab.setRdate(rs.getString(11));
+			ab.setNick(rs.getString(12));
+
+			comments.add(ab);
+		}
+
+		//6단계
+		rs.close();
+		psmt.close();
+		conn.close();
+
+		return comments;
+	}
+
+	
+	
 	public void updateArticle() throws Exception {
 		
 	}
@@ -242,5 +289,9 @@ public class ArticleDao {
 		conn.close();
 	}
 	
+	
+	
 	public void deleteArticle() throws Exception {}
+	
+	
 }

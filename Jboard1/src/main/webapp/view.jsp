@@ -1,7 +1,13 @@
+<%@page import="java.util.List"%>
+<%@page import="kr.co.jboard.bean.UserBean"%>
 <%@page import="kr.co.jboard.bean.ArticleBean"%>
 <%@page import="kr.co.jboard.dao.ArticleDao"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	//세션 사용자 정보 가져오기
+	UserBean user = (UserBean) session.getAttribute("suser");
+	String uid = user.getUid();
+
 	//전송데이터 수신
 	String seq = request.getParameter("seq");
 	
@@ -12,8 +18,11 @@
 	ArticleDao dao = ArticleDao.getInstance();
 	dao.updateArticleHit(seq);
 	
-	// 데이터베이스 처리 - 게시물 가져오기
+	//데이터베이스 처리 - 게시물 가져오기
 	ArticleBean ab = dao.selectArticle(seq);
+	
+	//데이터베이스 처리 - 댓글 가져오기
+	List<ArticleBean> comments = dao.selectComments(seq);
 	
 %>
 <!DOCTYPE html>
@@ -57,26 +66,34 @@
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
-                <article class="comment">
-                    <span>
-                        <span>길동이</span>
-                        <span>20-05-13</span>
-                    </span>
-                    <textarea name="comment" readonly>댓글 샘플입니다.</textarea>
-                    <div>
-                        <a href="#">삭제</a>
-                        <a href="#">수정</a>
-                    </div>
-                </article>
-                <p class="empty">
-                    등록된 댓글이 없습니다.
-                </p>
+                <% if(ab.getComment() > 0){ %>
+
+                	<% for(ArticleBean comment : comments){ %>
+		                <article class="comment">
+		                    <span>
+		                        <span><%= comment.getNick() %></span>
+		                        <span><%= comment.getRdate().substring(2, 10) %></span>
+		                    </span>
+		                    <textarea name="comment" readonly><%= comment.getContent() %></textarea>
+		                    <div>
+		                    	<% if(uid.equals(comment.getUid())){ %>
+		                        	<a href="#">삭제</a>
+		                        <% } %>
+		                    </div>
+		                </article>
+	                <% } %>
+
+                <% }else{ %>
+	                <p class="empty">
+	                    등록된 댓글이 없습니다.
+	                </p>
+                <% } %>
             </section>
 
             <!-- 댓글입력폼 -->
             <section class="commentForm">
                 <h3>댓글쓰기</h3>
-                <form action="/Jboard1/Proc/comment.jsp" method="post">
+                <form action="/Jboard1/proc/commentProc.jsp" method="post">
                 	<input type="hidden" name="seq" value="<%=ab.getSeq() %>" />
                     <textarea name="comment" required></textarea>
                     <div>
