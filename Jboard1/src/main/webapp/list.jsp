@@ -25,15 +25,15 @@
 	//전송데이터 인코딩
 	request.setCharacterEncoding("UTF-8");
 	
-	//페이지 관련 변수
-	
+	//페이지 관련 처리
 	ArticleDao dao = ArticleDao.getInstance();
 	
 	int total 		= dao.selectCountArticle();
 	int lastPageNum = dao.getLastPageNum(total);
 	int currentPage = dao.getCurrentPage(pg);
 	int start		= dao.getLimitStart(currentPage);
-	int[] groups	= dao.getPageGroup(currentPage, lastPageNum); 
+	int[] groups	= dao.getPageGroup(currentPage, lastPageNum);
+	int pageStartNum = dao.getPageStartNum(total, start);
 	
 	//데이터베이스 처리
 	List<ArticleBean> articles = dao.selectArticles(start);
@@ -65,7 +65,7 @@
                     </tr>
                     <% for(ArticleBean ab : articles){ %>
                     <tr>
-                        <td><%= ab.getSeq() %></td>
+                        <td><%= pageStartNum-- %></td>
                         <td><a href="/Jboard1/view.jsp"><%=ab.getTitle() %></a>&nbsp;[<%=ab.getComment() %>]</td>
                         <td><%= ab.getNick() %></td>
                         <td><%= ab.getRdate().substring(2,10) %></td>
