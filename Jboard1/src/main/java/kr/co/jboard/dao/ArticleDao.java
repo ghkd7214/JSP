@@ -9,6 +9,7 @@ import java.util.List;
 
 import kr.co.jboard.bean.ArticleBean;
 import kr.co.jboard.config.DBConfig;
+import kr.co.jboard.config.Sql;
 
 public class ArticleDao {
 	
@@ -106,7 +107,61 @@ public class ArticleDao {
 		conn.close();
 	}
 	
-	public void selectArticle() throws Exception {}
+	public void insertComment(String parent, String content, String uid, String regip) throws Exception {
+		//1~2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+		//3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_COMMENT);
+		psmt.setString(1, parent);
+		psmt.setString(2, content);
+		psmt.setString(3, uid);
+		psmt.setString(4, regip);
+
+		//4단계
+		psmt.executeUpdate();
+
+		//5단계
+		//6단계
+		psmt.close();
+		conn.close();
+	}
+	
+	public ArticleBean selectArticle(String seq) throws Exception {
+		//1~2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+
+		//3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_ARTICLE);
+		psmt.setString(1, seq);
+
+		//4단계
+		ResultSet rs = psmt.executeQuery();
+
+		//5단계
+		ArticleBean ab = new ArticleBean();
+
+		if(rs.next()) {
+			ab.setSeq(rs.getInt(1));
+			ab.setParent(rs.getInt(2));
+			ab.setComment(rs.getInt(3));
+			ab.setCate(rs.getString(4));
+			ab.setTitle(rs.getString(5));
+			ab.setContent(rs.getString(6));
+			ab.setFile(rs.getInt(7));
+			ab.setHit(rs.getInt(8));
+			ab.setUid(rs.getString(9));
+			ab.setRegip(rs.getString(10));
+			ab.setRdate(rs.getString(11));
+		}
+
+		//6단계
+		rs.close();
+		psmt.close();
+		conn.close();
+
+		return ab;
+		
+	}
 	
 	public List<ArticleBean> selectArticles(int start) throws Exception {
 		//1~2단계
@@ -148,7 +203,44 @@ public class ArticleDao {
 		return articles;
 	}
 	
-	public void updateArticle() throws Exception {}
+	public void updateArticle() throws Exception {
+		
+	}
+	
+	public void updateArticleHit(String seq) throws Exception {
+		//1~2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+		
+		//3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_HIT);
+		psmt.setString(1, seq);
+		
+		//4단계
+		psmt.executeUpdate();
+
+		//5단계
+		//6단계
+		psmt.close();
+		conn.close();
+		
+	}
+	
+	public void updateArticleComment(String seq) throws Exception {
+		//1~2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+
+		//3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_COMMENT);
+		psmt.setString(1, seq);
+
+		//4단계
+		psmt.executeUpdate();
+
+		//5단계
+		//6단계
+		psmt.close();
+		conn.close();
+	}
 	
 	public void deleteArticle() throws Exception {}
 }
