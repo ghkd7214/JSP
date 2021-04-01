@@ -25,6 +25,18 @@ public class ArticleBean {
 		this.nick = nick;
 	}
 	
+	//추가필드2
+	private FileBean fb;
+
+	public FileBean getFb() {
+		return fb;
+	}
+	public void setFb(FileBean fb) {
+		this.fb = fb;
+	}
+	
+
+	
 	public int getSeq() {
 		return seq;
 	}
