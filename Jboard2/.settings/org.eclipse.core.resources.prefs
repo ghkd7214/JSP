@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/main/java/kr/co/jboard2/dao/UserDao.java=UTF-8
+encoding//src/main/java/kr/co/jboard2/service/user/CheckUidService.java=UTF-8
+encoding//src/main/java/kr/co/jboard2/service/user/RegisterService.java=UTF-8
+encoding//src/main/java/kr/co/jboard2/vo/ArticleVo.java=UTF-8
