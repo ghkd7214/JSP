@@ -7,9 +7,9 @@
                     <img src="../img/sub_aside_cate3_tit.png" alt="농작물이야기"/>
 
                     <ul class="lnb">
-                        <li><a href="./story.html">농작물이야기</a></li>
-                        <li class="on"><a href="./grow.html">텃밭가꾸기</a></li>
-                        <li><a href="./school.html">귀농학교</a></li>
+                        <li><a href="/Farmstory1/croptalk/story.jsp">농작물이야기</a></li>
+                        <li class="on"><a href="/Farmstory1/croptalk/grow.jsp">텃밭가꾸기</a></li>
+                        <li><a href="/Farmstory1/croptalk/school.jsp">귀농학교</a></li>
                     </ul>
 
                 </aside>
@@ -30,4 +30,4 @@
             </section>
 
         </div>
-<%@ include file="../_footrt.jsp" %>
+<%@ include file="../_footer.jsp" %>

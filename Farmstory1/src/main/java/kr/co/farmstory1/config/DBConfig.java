@@ -14,9 +14,9 @@ public class DBConfig {
 	}
 
 	// DB 정보
-	private final String HOST = "jdbc:mysql://192.168.10.114:3306/chhak";
-	private final String USER = "chhak";
-	private final String PASS = "1234";
+	private final String HOST ="jdbc:mysql://192.168.10.114:3306/ljh";
+	private final String USER ="ljh";
+	private final String PASS ="1234";
 
 	public Connection getConnection() throws Exception {
 		// 1단계
