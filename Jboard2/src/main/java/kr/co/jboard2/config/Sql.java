@@ -1,8 +1,8 @@
 package kr.co.jboard2.config;
 
-public class SQL {
+public class Sql {
 	
-	// User 
+	// User °ü·Ã
 	public static final String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`;";
 	
 	public static final String SELECT_COUNT_USER = "SELECT COUNT(`uid`) FROM `JBOARD_USER` WHERE `uid`=?;";
@@ -20,7 +20,9 @@ public class SQL {
 											   + "`regip`=?,"
 											   + "`rdate`=NOW();";
 	
-	// Article 
+	// Article °ü·Ã
+	
+	public static final String SELECT_FILE = "SELECT * FROM `JBOARD_FILE` WHERE `seq`=?;";
 	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `JBOARD_ARTICLE` WHERE `parent`=0;";
 	public static final String SELECT_MAX_SEQ = "SELECT MAX(`seq`) FROM `JBOARD_ARTICLE` WHERE `parent`=0;";
 	
@@ -65,6 +67,7 @@ public class SQL {
 											+ "`rdate`=NOW();";
 	
 	
+	public static final String UPDATE_FILE_DOWNLOAD = "UPDATE `JBOARD_FILE` SET `download` = `download` + 1 WHERE `seq`=?;";
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `JBOARD_ARTICLE` SET `hit` = `hit` + 1 WHERE `seq` = ?;";
 	public static final String UPDATE_ARTICLE_COMMENT_INC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` + 1 WHERE `seq` = ?;";
 	public static final String UPDATE_ARTICLE_COMMENT_DEC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` - 1 WHERE `seq` = ?;";
@@ -74,3 +77,4 @@ public class SQL {
 	
 	
 }
+

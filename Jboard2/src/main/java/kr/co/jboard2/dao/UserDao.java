@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import kr.co.jboard2.config.DBConfig;
-import kr.co.jboard2.config.SQL;
+import kr.co.jboard2.config.Sql;
 import kr.co.jboard2.vo.TermsVo;
 import kr.co.jboard2.vo.UserVo;
 
@@ -23,7 +23,7 @@ public class UserDao {
 		//1~2단계
 		Connection conn = DBConfig.getInstance().getConnection();
 		//3단계
-		PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_USER);
+		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_USER);
 		psmt.setString(1, vo.getUid());
 		psmt.setString(2, vo.getPass());
 		psmt.setString(3, vo.getName());
@@ -44,7 +44,7 @@ public class UserDao {
 	
 	public int selectCountUser(String uid) throws Exception {
 		Connection conn = DBConfig.getInstance().getConnection();
-		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_COUNT_USER);
+		PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_USER);
 		psmt.setString(1, uid);
 
 		ResultSet rs = psmt.executeQuery();
@@ -67,7 +67,7 @@ public class UserDao {
 
 		try {
 			Connection conn = DBConfig.getInstance().getConnection();
-			PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_USER);
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_USER);
 			psmt.setString(1, uid);
 			psmt.setString(2, pass);
 	
@@ -104,7 +104,7 @@ public class UserDao {
 		//3단계
 		Statement stmt = conn.createStatement();
 		//4단계
-		ResultSet rs = stmt.executeQuery(SQL.SELECT_TERMS);
+		ResultSet rs = stmt.executeQuery(Sql.SELECT_TERMS);
 		//5단계
 		TermsVo vo = new TermsVo();
 		
