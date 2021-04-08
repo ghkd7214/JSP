@@ -2,7 +2,7 @@ package kr.co.farmstory1.config;
 
 public class Sql {
 	
-	// User °ü·Ã
+	//User 관련
 	public static final String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`;";
 	
 	public static final String SELECT_USER  = "SELECT * FROM `JBOARD_USER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
@@ -19,8 +19,14 @@ public class Sql {
 											   + "`regip`=?,"
 											   + "`rdate`=NOW();";
 	
-	// Article °ü·Ã
+	//Article 관련
+	
+	public static final String SELECT_ARTICLE_LATEST = "(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='grow'   ORDER BY `seq` DESC LIMIT 5) UNION "
+													 + "(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='school' ORDER BY `seq` DESC LIMIT 5) UNION "
+													 + "(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='story'  ORDER BY `seq` DESC LIMIT 5);";            
+	
 	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `JBOARD_ARTICLE` WHERE `parent`=0;";
+	
 	public static final String SELECT_MAX_SEQ = "SELECT MAX(`seq`) FROM `JBOARD_ARTICLE` WHERE `parent`=0;";
 	
 	public static final String SELECT_ARTICLE  = "SELECT * FROM `JBOARD_ARTICLE` AS a "
@@ -65,12 +71,12 @@ public class Sql {
 	
 	
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `JBOARD_ARTICLE` SET `hit` = `hit` + 1 WHERE `seq` = ?;";
+	
 	public static final String UPDATE_ARTICLE_COMMENT_INC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` + 1 WHERE `seq` = ?;";
+	
 	public static final String UPDATE_ARTICLE_COMMENT_DEC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` - 1 WHERE `seq` = ?;";
 	
-	
 	public static final String DELETE_COMMENT = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=?;";
-	
 	
 }
 
