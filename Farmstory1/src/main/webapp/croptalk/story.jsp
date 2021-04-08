@@ -8,9 +8,9 @@
                     <img src="../img/sub_aside_cate3_tit.png" alt="농작물이야기"/>
 
                     <ul class="lnb">
-                        <li class="on"><a href="/Farmstory1/croptalk/story.jsp">농작물이야기</a></li>
-                        <li><a href="/Farmstory1/croptalk/grow.jsp">텃밭가꾸기</a></li>
-                        <li><a href="/Farmstory1/croptalk/school.jsp">귀농학교</a></li>
+                        <li class="on"><a href="/Farmstory1/board/list.jsp?grorp=croptalk">농작물이야기</a></li>
+                        <li class="on"><a href="/Farmstory1/board/list.jsp?grorp=croptalk">텃밭가꾸기</a></li>
+                        <li class="on"><a href="/Farmstory1/board/list.jsp?grorp=croptalk">귀농학교</a></li>
                     </ul>
 
                 </aside>

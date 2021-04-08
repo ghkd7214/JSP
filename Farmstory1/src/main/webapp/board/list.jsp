@@ -2,6 +2,9 @@
 <%@ include file="../_header.jsp" %>
 <%
 	String group = request.getParameter("group");
+	String cate = request.getParameter("cate");
+
+
 	String path = "./_aside"+group+".jsp";	
 %>
 <jsp:include page="<%= path %>"></jsp:include>
@@ -36,7 +39,7 @@
     </div>
 
     <!-- 글쓰기 버튼 -->
-    <a href="./write.html" class="btnWrite">글쓰기</a>
+   <a href="/Farmstory1/board/write.jsp?group=<%= group %>&cate=<%= cate %>" class="btnWrite">글쓰기</a>
 
 </section>
 <!-- 내용 끝 -->
