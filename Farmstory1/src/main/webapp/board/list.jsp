@@ -63,7 +63,7 @@
             <% for(ArticleBean article : articles){ %>
 	            <tr>
 	                <td><%= article.getSeq() %></td>
-	                <td><a href="./view.html"><%= article.getTitle() %></a>&nbsp;[3]</td>
+	                <td><a href="./view.jsp"><%= article.getTitle() %></a>&nbsp;[3]</td>
 	                <td><%= article.getNick() %></td>
 	                <td><%= article.getRdate().substring(2, 10) %></td>
 	                <td><%= article.getHit() %></td>
