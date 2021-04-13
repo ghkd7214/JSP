@@ -29,13 +29,13 @@ public class MainController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// ÄÁÆ®·Ñ·¯°¡ ÃÖÃÊ ½ÇÇàµÉ¶§ ½ÇÇàµÇ´Â ÃÊ±âÈ­ ¸Ş¼­µå  
+		// ì»¨íŠ¸ë¡¤ëŸ¬ê°€ ìµœì´ˆ ì‹¤í–‰ë ë•Œ ì‹¤í–‰ë˜ëŠ” ì´ˆê¸°í™” ë©”ì„œë“œ 
 
-		// ÇÁ·ÎÆÛÆ¼ ÆÄÀÏ(¾×¼ÇÁÖ¼Ò ¸ÊÇÎ ÆÄÀÏ) °æ·Î ±¸ÇÏ±â
+		// í”„ë¡œí¼í‹° íŒŒì¼(ì•¡ì…˜ì£¼ì†Œ ë§µí•‘ íŒŒì¼) ê²½ë¡œ êµ¬í•˜ê¸°
 		ServletContext ctx = config.getServletContext();
 		String path = ctx.getRealPath("/WEB-INF")+"/urlMapping.properties";
 
-		// ÇÁ·ÎÆÛÆ¼ ÆÄÀÏ ÀÔ·Â ½ºÆ®¸² ¿¬°á
+		// í”„ë¡œí¼í‹° íŒŒì¼ ì…ë ¥ ìŠ¤íŠ¸ë¦¼ ì—°ê²°
 		Properties prop = new Properties();
 
 		try {
@@ -48,7 +48,7 @@ public class MainController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// ÇÁ·ÎÆÛÆ¼ °´Ã¼ »ı¼º ¹× Service °´Ã¼ »ı¼ºÈÄ º¸°ü
+		// í”„ë¡œí¼í‹° ê°ì²´ ìƒì„± ë° Service ê°ì²´ ìƒì„±í›„ ë³´ê´€
 		Iterator iter = prop.keySet().iterator();
 
 		while(iter.hasNext()) {
@@ -80,24 +80,24 @@ public class MainController extends HttpServlet {
 
 	public void requestProc(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// ¿äÃ» ÁÖ¼Ò¿¡¼­ service °´Ã¼ key ±¸ÇÏ±â
+		// ìš”ì²­ ì£¼ì†Œì—ì„œ service ê°ì²´ key êµ¬í•˜ê¸°
 		String path = req.getContextPath();
 		String uri  = req.getRequestURI();
 		String key = uri.substring(path.length());
 
-		// service °´Ã¼ map¿¡¼­ ²¨³»±â
+		/// service ê°ì²´ mapì—ì„œ êº¼ë‚´ê¸°
 		CommonService instance = (CommonService) instances.get(key);		
 
-		// service °´Ã¼ ½ÇÇàÈÄ view ¸®ÅÏ ¹Ş±â
+		// service ê°ì²´ ì‹¤í–‰í›„ view ë¦¬í„´ ë°›ê¸°
 		String result = instance.requestProc(req, resp);
 
 		if(result.startsWith("redirect:")) {
-			// ¸®´ÙÀÌ·ºÆ®
+			// ë¦¬ë‹¤ì´ë ‰íŠ¸
 			String redirectUrl = result.substring(9);			
 			resp.sendRedirect(redirectUrl);
 
 		}else if(result.startsWith("json:")) {
-			// Json Ãâ·Â
+			// Json ì¶œë ¥
 			PrintWriter out = resp.getWriter();
 			out.print(result.substring(5));				
 
@@ -107,14 +107,14 @@ public class MainController extends HttpServlet {
 
 			FileVo vo = (FileVo) req.getAttribute("fileVo");
 
-			// ÆÄÀÏ ´Ù¿î·Îµå response Çì´õ¼öÁ¤
+			// íŒŒì¼ ë‹¤ìš´ë¡œë“œ response í—¤ë”ìˆ˜ì •
 			resp.setContentType("application/octet-stream");
 			resp.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode(fname, "utf-8"));
 			resp.setHeader("Content-Transfer-Encoding", "binary");
 			resp.setHeader("Pragma", "no-cache");
 			resp.setHeader("Cache-Control", "private");
 
-			// ÆÄÀÏ µ¥ÀÌÅÍ ½ºÆ®¸² ÀÛ¾÷
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Û¾ï¿½
 			String filePath = req.getServletContext().getRealPath("/file");
 			File file = new File(filePath+"/"+vo.getNewName());
 
@@ -134,7 +134,7 @@ public class MainController extends HttpServlet {
 			bis.close();
 
 		}else {
-			// View Æ÷¿öµå
+			// View í¬ì›Œë“œ
 			RequestDispatcher dispatcher = req.getRequestDispatcher(result);
 			dispatcher.forward(req, resp);	
 		}
