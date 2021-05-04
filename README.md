@@ -2,7 +2,7 @@
 
 ## ch01
 
-> <a herf="https://github.com/ghkd7214/JSP/blob/master/ch01/src/main/webapp/hello.jsp"><JSP hello jsp 출력></a>
+> <a herf="https://github.com/ghkd7214/JSP/blob/master/ch01/src/main/webapp/hello.jsp"></a>(JSP hello jsp 출력)
  
 ## ch02
 
