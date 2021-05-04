@@ -1,32 +1,32 @@
 # JSP
 
 ## ch01
-
-> <a herf="https://github.com/ghkd7214/JSP/blob/master/ch01/src/main/webapp/hello.jsp"></a>(JSP hello jsp 출력)
+> [JSP hello jsp 출력](https://github.com/ghkd7214/JSP/blob/master/ch01/src/main/webapp/hello.jsp)
  
 ## ch02
+> [JSP 구성요소 연습](https://github.com/ghkd7214/JSP/tree/master/ch02/src/main/webapp)
 
-> JSP 구성요소 연습
 
 ## ch03
-> 리퀘스트 내장객체 연습   
-> 리스폰 내장객체 연습   
-> 아웃 내장객체 연습   
+> [리퀘스트 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_1_Request.jsp)   
+> [리스폰 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_2_Response.jsp)
+> [아웃 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_3_Out.jsp)
 
 ## ch04
-> 인클루드 액션태그 연습   
-> 포워드 액션태그 연습   
+> [인클루드 액션태그 연습](https://github.com/ghkd7214/JSP/blob/master/ch04/src/main/webapp/4_1_IncludeTag.jsp)
+> [포워드 액션태그 연습](https://github.com/ghkd7214/JSP/blob/master/ch04/src/main/webapp/4_2_ForwardTag.jsp)
+
 ## ch05
-> 자바빈 객체 연슴   
-> 유저빈 태그 연습   
+> [자바빈 객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch05/src/main/webapp/5_1_JavaBean.jsp)   
+> [유저빈 태그 연습](https://github.com/ghkd7214/JSP/blob/master/ch05/src/main/webapp/5_2_UseBean.jsp)
 
 ## ch06
-> 쿠키 연습   
-> 세션 연습   
+> [쿠키 연습](https://github.com/ghkd7214/JSP/blob/master/ch06/src/main/webapp/6_1_Cookie.jsp)
+> [세션 연습](https://github.com/ghkd7214/JSP/blob/master/ch06/src/main/webapp/6_3_Session.jsp)
 
 ## ch07
 
-> jdbc insert문 연습   
+> [jdbc insert문 연습](https://github.com/ghkd7214/JSP/blob/master/ch07/src/main/webapp/7_1_JDBC_Insert.jsp)    [**AWS서버**](54.1321321)에서 확인하기   
 > jdbc select문 연습   
 
 ## ch08 
