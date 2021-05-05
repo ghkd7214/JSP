@@ -9,7 +9,7 @@
 
 ## ch03
 > [리퀘스트 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_1_Request.jsp)   
-> [리스폰 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_2_Response.jsp)
+> [리스폰 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_2_Response.jsp)   
 > [아웃 내장객체 연습](https://github.com/ghkd7214/JSP/blob/master/ch03/src/main/webapp/3_3_Out.jsp)
 
 ## ch04
@@ -26,8 +26,10 @@
 
 ## ch07
 
-> [jdbc insert문 연습](https://github.com/ghkd7214/JSP/blob/master/ch07/src/main/webapp/7_1_JDBC_Insert.jsp)    [**AWS서버**](54.1321321)에서 확인하기   
+> [jdbc insert문 연습](https://github.com/ghkd7214/JSP/blob/master/ch07/src/main/webapp/7_1_JDBC_Insert.jsp)    
 > jdbc select문 연습   
+>       
+> [**AWS서버**](54.1321321)에서 확인하기    
 
 ## ch08 
 
