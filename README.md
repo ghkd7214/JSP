@@ -40,7 +40,7 @@
 > [**AWS서버**](http://54.180.147.199:8080/ch08/8_4_XmlData.jsp)에서 확인하기   
 
 ## ch09
-> 표현언어 연습   [1](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_1_EL1.jsp) [2](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_2_EL2.jsp) [3](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_3_EL_Operator.jsp)   
+> 표현언어 연습  [1](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_1_EL1.jsp) [2](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_2_EL2.jsp) [3](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_3_EL_Operator.jsp)   
 > [JSTL 연습](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_4_JSTL.jsp)   [**AWS서버**](http://54.180.147.199:8080/ch09/9_4_JSTL.jsp)에서 확인하기
 
 ## ch10
