@@ -27,21 +27,24 @@
 ## ch07
 
 > [jdbc insert문 연습](https://github.com/ghkd7214/JSP/blob/master/ch07/src/main/webapp/7_1_JDBC_Insert.jsp)    
-> jdbc select문 연습   
+> [jdbc select문 연습](https://github.com/ghkd7214/JSP/blob/master/ch07/src/main/webapp/7_2_JDBC_Select.jsp)
 >       
-> [**AWS서버**](54.1321321)에서 확인하기    
+> [**AWS서버**](http://54.180.147.199:8080/ch07/7_1_JDBC_Insert.jsp)에서 확인하기    
 
-## ch08 
+## ch08  
 
-> json 데이터 전송 연습   
-> xml 데이터 전송 연습   
+> [json 데이터 전송 연습](https://github.com/ghkd7214/JSP/blob/master/ch08/src/main/webapp/8_2_JsonData.jsp)   
+> [**AWS서버**](http://54.180.147.199:8080/ch08/8_2_JsonData.jsp)에서 확인하기   
+
+> [xml 데이터 전송 연습](https://github.com/ghkd7214/JSP/blob/master/ch08/src/main/webapp/8_4_XmlData.jsp)   
+> [**AWS서버**](http://54.180.147.199:8080/ch08/8_4_XmlData.jsp)에서 확인하기   
 
 ## ch09
-> 표현언어 연습   
-> JSTL 연습   
+> 표현언어 연습   [1](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_1_EL1.jsp) [2](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_2_EL2.jsp) [3](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_3_EL_Operator.jsp)   
+> [JSTL 연습](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_4_JSTL.jsp)   [**AWS서버**](http://54.180.147.199:8080/ch09/9_4_JSTL.jsp)에서 확인하기
 
 ## ch10
-> JSP 모델1 연습
+> [JSP 모델1 연습]()   
 
 ## Farmstory1 
 > 모델1 로 Farmstory 홈페이지 만들기
