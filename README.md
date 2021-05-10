@@ -47,22 +47,24 @@
 ## ch10
 > [JSP 모델2 연습](https://github.com/ghkd7214/JSP/tree/master/ch10)   
 
+## Member
+> [멤버등록 기능 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Member/src/main/webapp)    
+> INSERT, SELECT, DELEETE, UPDATE 사용해보기   
+> [**AWS서버**](http://54.180.147.199:8080/member/list.jsp)에서 확인하기    
+
 ## Jboard1
-> [모델1으로 게시판 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Jboard1/src/main)    
+> [모델1으로 게시판 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Jboard1/src/main)  
+> 회원가입 로그인 글목록 페이지네이션 댓글 글쓰기 구현   
 > [**AWS서버**](http://54.180.147.199:8080/Jboard1/user/login.jsp)에서 확인하기    
 
 ## Jboard2
 > [모델2로 게시판 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Jboard2/src/main)
 
-## Member
-> [회원가입 기능 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Member/src/main/webapp)    
-> INSERT, SELECT, DELEETE, UPDATE 사용해보기   
-> [**AWS서버**](http://54.180.147.199:8080/member/list.jsp)에서 확인하기    
-
 ## Farmstory1 
-> 모델1 로 Farmstory 홈페이지 만들기
+> [모델1 로 Farmstory 홈페이지 만들기](https://github.com/ghkd7214/JSP/tree/master/Farmstory1/src/main)     
+> [**AWS서버**](http://54.180.147.199:8080/Farmstory1/)에서 확인하기
 
 ## Farmstory2
-> 모델2 로 Farmstory 홈페이지 만들기
+> [모델2 로 Farmstory 홈페이지 만들기](https://github.com/ghkd7214/JSP/tree/master/Farmstory2)
 
 
