@@ -41,10 +41,20 @@
 
 ## ch09
 > 표현언어 연습  [1](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_1_EL1.jsp) [2](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_2_EL2.jsp) [3](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_3_EL_Operator.jsp)   
-> [JSTL 연습](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_4_JSTL.jsp)   [**AWS서버**](http://54.180.147.199:8080/ch09/9_4_JSTL.jsp)에서 확인하기
+> [JSTL 연습](https://github.com/ghkd7214/JSP/blob/master/ch09/src/main/webapp/9_4_JSTL.jsp)    
+> [**AWS서버**](http://54.180.147.199:8080/ch09/9_4_JSTL.jsp)에서 확인하기   
 
 ## ch10
-> [JSP 모델1 연습]()   
+> [JSP 모델2 연습](https://github.com/ghkd7214/JSP/tree/master/ch10)   
+
+## Jboard1
+> [모델1으로 게시판 만들어보기](https://github.com/ghkd7214/JSP/tree/master/Jboard1/src/main)
+
+## Jboard2
+> 모델2로 게시판 만들어보기
+
+## Member
+> 회원가입 기능 만들어보기
 
 ## Farmstory1 
 > 모델1 로 Farmstory 홈페이지 만들기
@@ -52,11 +62,4 @@
 ## Farmstory2
 > 모델2 로 Farmstory 홈페이지 만들기
 
-## Jboard1
-> 모델1으로 게시판 만들어보기
 
-## Jboard2
-> 모델2로 게시판 만들어보기
-
-## Member
-> 회원가입 기능 만들어보기
